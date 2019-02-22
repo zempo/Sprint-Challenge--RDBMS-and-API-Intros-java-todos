@@ -13,8 +13,8 @@ The table layouts are as follows:
 * TODO
   * todoid primary key, not null int
   * description string, not null
-  * datestarted datetime
-  * completed boolean (0 = false 1 = true)
+  * datestarted datetime // adding this is now a stretch goal
+  * completed boolean (0 = false 1 = true)/ / adding this is now a stretch goal
   * userid foreign key (one user to many todos) not null 
 
 * USERS
@@ -31,7 +31,7 @@ Expose the following end points
 * GET /todos/todoid/{todoid} - return the todo based off of the todo id
 
 * GET /todos/users - return a listing of the todos with its assigned user's name
-* GET /todos/active - return a listing of the todos not yet completed.
+* GET /todos/active - return a listing of the todos not yet completed. // adding this is now a stretch goal
 
 * POST /users - adds a user
 * POST /todos - adds a todo
@@ -52,7 +52,7 @@ Expose the following end points
   * Add custom Swagger Documentation to each of the follow End Points. The rest of the end points may just have the default documentation.
       * GET /todos
       * GET /todos/users
-      * GET /todos/active
+      * GET /todos/active // adding this is now a stretch goal
       * PUT /todos/todoid/{todoid}
       * DELETE /todos/todoid/{todoid}
     * For a stretch goal - add custom responses to the rest of the end points
