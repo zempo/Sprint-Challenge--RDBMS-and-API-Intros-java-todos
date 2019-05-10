@@ -24,6 +24,7 @@ This is a basic todo database scheme with users and a todo list.
 
 Create a REST api service to store and read data from H2 database. 
 * seeddata.java is a sample script that can be modified to populate the database 
+* note that all new todos default to completed = false;
 
 The table layouts are as follows:
 
@@ -32,8 +33,8 @@ The table layouts are as follows:
 * TODO
   * todoid primary key, not null long
   * description string, not null
-  * datestarted datetime // adding this is now a stretch goal
-  * completed boolean (0 = false 1 = true)/ / adding this is now a stretch goal
+  * datestarted datetime
+  * completed boolean
   * userid foreign key (one user to many todos) not null 
 
 * USERS
