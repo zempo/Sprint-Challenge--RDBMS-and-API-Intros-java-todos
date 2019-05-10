@@ -58,6 +58,9 @@ Expose the following end points
 * PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can be done by any user.
 * DELETE /users/userid/{userid} - Deletes a user based off of their userid and deletes all their associated todos. Can only be done by an admin.
 
+Stretch goals
+
+Note: exception handling and logging are moved to Stretch goals due to time constraints.
 
 Add appropriate exception handling especially
 
@@ -71,7 +74,6 @@ Add logging for
 * Specific application logging whenever a todo is added. Include the text of the todo, the time and date it is added and its id number.
 * All logging can do to the console
 
-Stretch goals
 * Update the end points below:
   * POST /users/todo/{userid} - adds a todo to the assigned user. Can only be done by the authenticated user. A user can only modify their own data.
   * PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can only be done by the authenticated user. A user can only modify their own data.
