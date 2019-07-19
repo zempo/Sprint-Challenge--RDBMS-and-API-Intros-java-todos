@@ -10,8 +10,6 @@ A student that completes this project shows that they can
 Specifically
 * Seed Data
 * CRUD Operations
-* Exception Handling
-* Logging (Tomcat Root)
 * H2 Connections
 * Authentication
 
@@ -63,20 +61,7 @@ Expose the following end points
 
 ## Stretch goals
 
-Add appropriate exception handling especially
-
-* a resource is not found
-* the wrong data type is used for a path variable
-* a non-handled endpoint is accessed (a URL not found exception)
-
-Add logging for
-* Tomcat 
-* Root
-* Specific application logging whenever a todo is added. Include the text of the todo, the time and date it is added and its id number.
-* All logging can do to the console
-
 * Update the end points below:
   * POST /users/todo/{userid} - adds a todo to the assigned user. Can only be done by the authenticated user. A user can only modify their own data.
   * PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can only be done by the authenticated user. A user can only modify their own data.
 * add appropriate end points to manage users giving only admin access to these.
-* Deploy to Heroku using H2
