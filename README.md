@@ -51,7 +51,7 @@ The table layouts are as follows:
 
 Expose the following end points
 
-* GET /users/mine - return the user and todo based off of the authenticated user. You can only look up your own.
+* GET /users/mine - return the user and todo based off of the authenticated user. You can only look up your own. It is okay if this also lists the users roles and authorities.
 * POST /users - adds a user. Can only be done by an admin.
 * POST /users/todo/{userid} - adds a todo to the assigned user. Can be done by any user.
 * PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can be done by any user.
