@@ -77,15 +77,31 @@ Expose the following end points
 }
 ```
 
-* POST /users/todo/{userid} - adds a todo to the assigned user. Can be done by any user.
-* PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can be done by any user.
+* POST /users/todo/{userid} - adds a todo to the assigned user. Can be done by any user. You can add this todo
+```
+{
+    "description": "Have Fun",
+    "datestarted": "2019-01-01T01:00"
+}
+```
+
+* PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can be done by any user. Note: null boolean is not a thing - it is false, so just set compeleted to whatever comes across in the RequestBody.
+```
+{
+    "completed": true
+}
+```
+
 * DELETE /users/userid/{userid} - Deletes a user based off of their userid and deletes all their associated todos. Can only be done by an admin.
 
+
 * hint - think about taking the project https://github.com/LambdaSchool/java-oauth2.git and modifying it to fit this application
+
 
 ## Stretch goals
 
 * Update the end points below:
+
   * POST /users/todo/{userid} - adds a todo to the assigned user. Can only be done by the authenticated user. A user can only modify their own data.
+  
   * PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can only be done by the authenticated user. A user can only modify their own data.
-* add appropriate end points to manage users giving only admin access to these.
