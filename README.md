@@ -27,6 +27,7 @@ Create a REST api service to store and read data from H2 database.
 The table layouts are as follows:
 
 * All tables should have audit fields / columns - createby createddate modifiedby modifieddate
+* Note these are the minimum fields required. More is okay.
 
 * TODO
   * todoid primary key, not null long
