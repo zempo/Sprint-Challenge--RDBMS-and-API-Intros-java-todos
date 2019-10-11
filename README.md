@@ -39,6 +39,7 @@ The table layouts are as follows:
 * USERS
   * userid primary key, not null long
   * username string, not null unique
+  * primaryemail string, not null unique
   * password string, not null
 
 * ROLES
@@ -53,12 +54,13 @@ The table layouts are as follows:
 Expose the following end points
 
 * GET /users/mine - return the user and todo based off of the authenticated user. You can only look up your own. It is okay if this also lists the users roles and authorities.
-* POST /users - adds a user. Can only be done by an admin.
+* POST /user - adds a user. Can only be done by an admin.
 ```
 {
-    "username": "cinnamon",
+    "username": "hops",
     "password": "password",
-    "userRoles": [
+    "primaryemail" : "hops@bunny.hop",
+    "userroles": [
         {
             "role": {
                 "roleid": 2
