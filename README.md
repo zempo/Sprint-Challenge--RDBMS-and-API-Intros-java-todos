@@ -88,7 +88,7 @@ Expose the following end points
 }
 ```
 
-* PUT /todos/todoid/{todoid} - updates a todo based on todoid. Note: null boolean is not a thing so just set compeleted to whatever comes across in the RequestBody.
+* PUT /todos/todo/{todoid} - updates a todo based on todoid. Note: null boolean is not a thing so just set compeleted to whatever comes across in the RequestBody.
   * Hint: to change the user of the todo through this endpoint, try using code like this:
 ```
         if (todo.getUser() != null)
