@@ -5,13 +5,11 @@ A student that completes this project shows that they can
 * implement a data seeding class using JPA and Hibernate
 * use JPA and Hibernate to perform advanced query operations on a RDBMS.
 * add relationships between tables.
-* implement Spring Security and OAuth2. to provide authentication for a project.
 
 Specifically
 * Seed Data
 * CRUD Operations
 * H2 Connections
-* Authentication
 
 
 ## Introduction
@@ -21,15 +19,14 @@ This is a basic todo database scheme with users and a todo list.
 ## Instructions
 
 Create a REST api service to store and read data from H2 database. 
-* seeddata.java is a sample script that can be modified to populate the database 
+* SeedData.java is a sample script that can be modified to populate the database 
 * note that all new todos default to completed = false;
 
 The table layouts are as follows:
 
-* All tables should have audit fields / columns - createby createddate modifiedby modifieddate
 * Note these are the minimum fields required. More is okay.
 
-* TODO
+* TODOS
   * todoid primary key, not null long
   * description string, not null
   * datestarted datetime
@@ -40,21 +37,23 @@ The table layouts are as follows:
   * userid primary key, not null long
   * username string, not null unique
   * primaryemail string, not null unique
-  * password string, not null
+  * password string, not null. This will be stored in plain text for now.
 
 * ROLES
   * roleid primary key, not null long
   * rolename string not null unique
 
-* USERROLES
-  * roleid foreign key to role
-  * userid foreign key to user
-  
+* Notes:
+  * USERS have a many to many relationship with ROLES. This should be done through a join table called USERROLES
+  * USERS have a one to many relationship with TODOS.
 
 Expose the following end points
 
-* GET /users/mine - return the user and todo based off of the authenticated user. You can only look up your own. It is okay if this also lists the users roles and authorities.
-* POST /users/user - adds a user. Can only be done by an admin.
+* GET /users/users - return all of the users and their todos
+
+* GET /users/user/{userid} - return the user and their todos based off of id
+
+* POST /users/user - adds a user.
 ```
 {
     "username": "hops",
@@ -80,7 +79,7 @@ Expose the following end points
 }
 ```
 
-* POST /users/todo/{userid} - adds a todo to the assigned user. Can be done by any user. You can add this todo
+* POST /users/todo/{userid} - adds a todo to the user.
 ```
 {
     "description": "Have Fun",
@@ -88,23 +87,20 @@ Expose the following end points
 }
 ```
 
-* PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can be done by any user. Note: null boolean is not a thing - it is false, so just set compeleted to whatever comes across in the RequestBody.
+* PUT /todos/todoid/{todoid} - updates a todo based on todoid. Note: null boolean is not a thing so just set compeleted to whatever comes across in the RequestBody.
 ```
 {
     "completed": true
 }
 ```
 
-* DELETE /users/userid/{userid} - Deletes a user based off of their userid and deletes all their associated todos. Can only be done by an admin.
+* DELETE /users/userid/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
 
-
-* hint - think about taking the project https://github.com/LambdaSchool/java-oauth2.git and modifying it to fit this application
 
 
 ## Stretch goals
 
-* Update the end points below:
+* Update the endpoints below:
 
-  * POST /users/todo/{userid} - adds a todo to the assigned user. Can only be done by the authenticated user. A user can only modify their own data.
+  * GET /users/user/{userid}/todos - returns in datestarted order all of the todos that have not yet been completed for the user with the given id. In orders, what does this user still need to do?
   
-  * PUT /todos/todoid/{todoid} - updates a todo based on todoid. Can only be done by the authenticated user. A user can only modify their own data.
