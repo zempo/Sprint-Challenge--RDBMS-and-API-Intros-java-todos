@@ -59,11 +59,12 @@ Expose the following end points
     "username": "hops",
     "password": "password",
     "primaryemail" : "hops@bunny.hop",
-    "userroles": [
-        {
-            "role": {
-                "roleid": 2
-            }
+    "roles": [
+    	{
+    		"roleid": 2
+    	},
+    	{
+    		"roleid": 3
         }
     ],
     "todos": [
