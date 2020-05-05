@@ -1,114 +1,20 @@
-# Sprint Challenge for Java with RDBMS and API Intros: Todo List
+# Java with RDBMS and API Intros Sprint Challenge
 
-A student that completes this project shows that they can
+**Read these instructions carefully. Understand exactly what is expected _before_ starting this Sprint Challenge.**
 
-* Perform CRUD operations on an RDBMS using JPA and Hibernate
-* Explain and use Spring Data Relationships
-* Use the JsonIgnoreProperties annotation to prevent infinite loops
-* Use JPA constructs to create advanced queries
-* Understand and implement @Transactional annotation
-* Implement a data seeding class using JPA and Hibernate
-* Implement massive data seeding
-* Add standard auditing fields to each table
-* Use SQL, JPA and Hibernate to perform custom query operations on a RDBMS through a Spring Application
-* Implement default Swagger documentation
+This challenge allows you to practice the concepts and techniques learned over the past sprint and apply them in a concrete project. This sprint explored **using RDBMS and APIs in Java**. During this sprint, you studied **SQL, Spring Data, JPA, and Hibernate**. In your challenge this week, you will demonstrate your mastery of these skills by creating **a Java Spring REST API Application**.
 
-In summary, a student that completes this project shows that they can
+This is an individual assessment. All work must be your own. Your challenge score is a measure of your ability to work independently using the material covered through this sprint. You need to demonstrate proficiency in the concepts and objectives introduced and practiced in preceding days.
 
-* Seed Data
-* Manipulate data in databases
-* Perform CRUD Operations
+You are not allowed to collaborate during the sprint challenge. However, you are encouraged to follow the twenty-minute rule and seek support from your TL if you need direction.
+
+_You have **three hours** to complete this challenge. Plan your time accordingly._
 
 ## Introduction
 
 This is a basic todo database scheme with users and a todo list. Users have a one to many relationship to todo list. One user can have many todo items while a todo item only matches to one users. CRUD operations are available to display and manipulate this data.
 
-## Instructions
-
-You will be creating a REST api service to store and read data from an H2 database.
-
-* [ ] Please fork and clone this repository. This repository does not have a starter project, so create one inside of the cloned repository folder. Regularly commit and push your code as appropriate.
-
-* [ ] Create the models, repositories, and services needed to model the following suggested table layout:
-
-* Note these are the minimum fields required. More is okay.
-
-* [ ] TODOS
-  * `todoid` primary key, not null long
-  * `description` string, not null
-  * `completed` boolean. Note that for all new todos, default completed to false
-  * `userid` foreign key (one user to many todos) not null
-  * any time TODOS are displayed, the created on auditing field should also be displayed!
-
-* [ ] USERS
-  * `userid` primary key, not null long
-  * `username` string, not null unique, always lower case
-  * `primaryemail` string, not null unique
-  * `password` string, not null. This will be stored in plain text for now.
-
-* [ ] Notes:
-  * USERS have a one to many relationship with TODOS.
-  * All tables must have the standard 4 auditing fields in place and working, being populated: created on, created by, last modified on, last modified by. The auditing usernames will all default to `llama`.
-
-* [ ] SeedData.java is a sample script that can be modified to populate the database. However, this is the seed data to use for this application. The structure can change, the data should not change. Do populate the database with this data.
-
-* [ ] For all dates use the format `yyyy-MM-dd HH:mm:ss` so `2020-04-15 23:59:59`
-
-Expose the following end points
-
-* [ ] GET /users/users - return all of the users and their todos
-
-* [ ] GET /users/user/{userid} - return the user and their todos based off of id
-
-* [ ] POST /users/user - adds a user.
-
-  You can use the following to test this!
-
-  ```JSON
-  {
-      "username": "lambdallama",
-      "primaryemail": "llama@lambdaschool.local",
-      "password": "ILuvM4th!",
-      "todos": [
-          {
-              "description": "Take over the world"
-          },
-          {
-              "description": "Make lasagna"
-          }
-      ]
-  }
-  ```
-
-  </details>
-
-* [ ] POST /todos/user/{userid} - adds a todo to the user.
-
-  You can use the following to test this!
-
-  ```JSON
-  {
-    "description": "Make coffee"
-  }
-  ```
-
-* [ ] PATCH /todos/todo/{todoid} - mark a todo as completed.
-
-* [ ] DELETE /users/userid/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
-
-* [ ] GET /users/users/todos - lists the number of todos each user has that are NOT completed. Use a custom query to accomplish this!
-  * Users with 0 todos do NOT have to be included in the list
-  * Order the list by username!
-
-## Stretch Goals
-
-* [ ] Add the endpoint GET /users/user/{username}/todos - returns in created date (from auditing fields) order all of the todos that have not yet been completed for the user with the given the username. In other words, what does this user still need to do?
-  
-* [ ] Add in 100 more random users each with a random number (0 - 3) of random todos. The todos descriptions should be something random as well. For my example, I picked Pokemon names!
-  
-* [ ] Add Default Swagger Documentation
-  
-## Results
+Your final results should look like:
 
 ### MVP
 
@@ -2008,3 +1914,126 @@ Status OK
 </details>
 
 [PDF of Swagger Documentation from http://localhost:2019/swagger-ui.html](https://drive.google.com/open?id=1GMbkcalznXWzuItP4GfmuF7uUj9jftWM)
+
+### Commits
+
+Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
+
+Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
+
+1. Explain what an RDBMS is including details the parts of its databases.
+2. What are CRUD Operations and how do they relate to SQL and Http Methods?
+3. What are examples of relationships between tables?
+4. Explain the uses and differences of Spring JPA, Spring Data, and Hibernate.
+
+## Instructions
+
+### Task 1: Project Set Up
+
+- [ ] Create a forked copy of this project
+- [ ] Add your team lead as collaborator on Github
+- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Create a new Java Spring Application using IntelliJ.
+- [ ] Push commits: `git push origin <firstName-lastName>`
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
+- [ ] Push commits: git push origin `<firstName-lastName>`
+
+### Task 2: Project Requirements
+
+You will be creating a REST api service to store and read data from an H2 database.
+
+- [ ] Please fork and clone this repository. This repository does not have a starter project, so create one inside of the cloned repository folder. Regularly commit and push your code as appropriate.
+
+- [ ] Create the models, repositories, and services needed to model the following suggested table layout:
+
+- Note these are the minimum fields required. More is okay.
+
+- [ ] TODOS
+  - `todoid` primary key, not null long
+  - `description` string, not null
+  - `completed` boolean. Note that for all new todos, default completed to false
+  - `userid` foreign key (one user to many todos) not null
+  - any time TODOS are displayed, the created on auditing field should also be displayed!
+
+- [ ] USERS
+  - `userid` primary key, not null long
+  - `username` string, not null unique, always lower case
+  - `primaryemail` string, not null unique
+  - `password` string, not null. This will be stored in plain text for now.
+
+- [ ] Notes:
+  - USERS have a one to many relationship with TODOS.
+  - All tables must have the standard 4 auditing fields in place and working, being populated: created on, created by, last modified on, last modified by. The auditing usernames will all default to `llama`.
+
+- [ ] SeedData.java is a sample script that can be modified to populate the database. However, this is the seed data to use for this application. The structure can change, the data should not change. Do populate the database with this data.
+
+- [ ] For all dates use the format `yyyy-MM-dd HH:mm:ss` so `2020-04-15 23:59:59`
+
+Expose the following end points
+
+- [ ] GET /users/users - return all of the users and their todos
+
+- [ ] GET /users/user/{userid} - return the user and their todos based off of id
+
+- [ ] POST /users/user - adds a user.
+
+  You can use the following to test this!
+
+  ```JSON
+  {
+      "username": "lambdallama",
+      "primaryemail": "llama@lambdaschool.local",
+      "password": "ILuvM4th!",
+      "todos": [
+          {
+              "description": "Take over the world"
+          },
+          {
+              "description": "Make lasagna"
+          }
+      ]
+  }
+  ```
+
+  </details>
+
+- [ ] POST /todos/user/{userid} - adds a todo to the user.
+
+  You can use the following to test this!
+
+  ```JSON
+  {
+    "description": "Make coffee"
+  }
+  ```
+
+- [ ] PATCH /todos/todo/{todoid} - mark a todo as completed.
+
+- [ ] DELETE /users/userid/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
+
+- [ ] GET /users/users/todos - lists the number of todos each user has that are NOT completed. Use a custom query to accomplish this!
+  - Users with 0 todos do NOT have to be included in the list
+  - Order the list by username!
+
+### Required best practices
+
+- [ ] Consistent naming. Examples: variables, functions, Components, and file/folder organization.
+- [ ] Consistent spacing. Examples: line breaks, around arguments and before/after functions.
+- [ ] Consistent quotation usage.
+- [ ] Spell-check.
+- [ ] Schedule time to review, refine and reassess your work.
+
+It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) than one that attempts too much and fails.
+
+### Tips and Gotchas
+
+In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
+
+### Task 3: Stretch Goals
+
+- [ ] Add the endpoint GET /users/user/{username}/todos - returns in created date (from auditing fields) order all of the todos that have not yet been completed for the user with the given the username. In other words, what does this user still need to do?
+  
+- [ ] Add in 100 more random users each with a random number (0 - 3) of random todos. The todos descriptions should be something random as well. For my example, I picked Pokemon names!
+  
+- [ ] Add Default Swagger Documentation
