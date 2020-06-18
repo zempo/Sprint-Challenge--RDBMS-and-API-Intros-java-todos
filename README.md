@@ -1921,10 +1921,10 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. Explain what an RDBMS is including details the parts of its databases.
-2. What are CRUD Operations and how do they relate to SQL and Http Methods?
-3. What are examples of relationships between tables?
-4. Explain the uses and differences of Spring JPA, Spring Data, and Hibernate.
+1. Can you explain your data model, data schema to me?
+2. Can you explain how you connected your API to a database?
+3. Can you explain the flow of data from client through the backend system and back to the client?
+4. How did you handle querying in your application: custom querying vs JPA Querying?
 
 ## Instructions
 
