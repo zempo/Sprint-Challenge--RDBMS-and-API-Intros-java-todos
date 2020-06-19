@@ -2028,6 +2028,8 @@ It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wik
 
 ### Tips and Gotchas
 
+A very important hint: start with the [usermodel repository](https://github.com/LambdaSchool/java-usermodel.git). Note that in that repository the User table as a one to many relationship with useremails. The project does not need useremails but does need a one to many relationship with todos. Think about how you can update the useremails to work as todos instead...
+
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
 ### Task 3: Stretch Goals
