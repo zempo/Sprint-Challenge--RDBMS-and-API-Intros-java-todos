@@ -1785,9 +1785,9 @@ You will be creating a REST api service to store and read data from an H2 databa
 
 The following end points are already available in the initial application. You are to make sure the end points work with the newly added todos table
 
-- [ ] GET /users/users - return all of the users and their todos
+- [ ] GET /users/users - return all of the users and their todos. If the todos table is added correctly, the Controller, Service, and Repository for this end point should not change!
 
-- [ ] GET /users/user/{userid} - return the user and their todos based off of user id
+- [ ] GET /users/user/{userid} - return the user and their todos based off of user id. If the todos table is added correctly, the Controller, Service, and Repository for this end point should not change!
 
 - [ ] POST /users/user - adds a user with their todos
 
@@ -1811,7 +1811,7 @@ The following end points are already available in the initial application. You a
 
 - [ ] PATCH /todos/todo/{todoid} - mark a todo as completed.
 
-- [ ] DELETE /users/user/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
+- [ ] DELETE /users/user/{userid} - Deletes a user based off of their userid and deletes all their associated todos. If the todos table is added correctly, the Controller, Service, and Repository for this end point should not change!
 
 ### Required best practices
 
