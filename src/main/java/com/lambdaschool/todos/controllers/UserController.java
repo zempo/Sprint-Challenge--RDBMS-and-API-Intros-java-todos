@@ -116,10 +116,12 @@ public class UserController
      *
      * @return List of usernames, count of non completed tasks
      */
-    @GetMapping(value = "/users/todos", produces = {"application/json"})
+    @GetMapping(value = "/users/todos",
+        produces = {"application/json"})
     public ResponseEntity<?> getUserNameCountTodos()
     {
         List<UserNameCountTodos> myList = userService.getCountUserTodos();
-        return new ResponseEntity<>(myList, HttpStatus.OK);
+        return new ResponseEntity<>(myList,
+            HttpStatus.OK);
     }
 }

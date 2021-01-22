@@ -1745,11 +1745,12 @@ STATUS OK
 
 Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
 
+## Interview Questions
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. Can you explain your data model, data schema to me?
 2. Can you explain how you connected your API to a database?
-3. Can you explain the flow of data from client through the backend system and back to the client?
+3. Can you explain the flow of data from the client through the backend system and back to the client?
 4. How did you handle querying in your application: custom querying vs JPA Querying?
 
 ## Instructions
@@ -1760,9 +1761,12 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 - [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
 - [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
 - [ ] Start with the provided todo application
-- [ ] Push commits: `git push origin <firstName-lastName>`
+- [ ] Push commits: `git push -u origin <firstName-lastName>`
 - [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
-- [ ] Push commits: git push origin `<firstName-lastName>`
+
+#### Vide on How to Set Up Your Project
+
+[![Video on how to set up your project](https://img.youtube.com/vi/Bw55xlQGQoQ/0.jpg)](https://youtu.be/Bw55xlQGQoQ)
 
 ### Task 2: Project Requirements
 
@@ -1780,7 +1784,9 @@ You will be creating a REST api service to store and read data from an H2 databa
   - All tables must have the standard 4 auditing fields in place and working, being populated: created on, created by, last modified on, last modified by. The auditing usernames will all default to `llama`.
   - USERS have a one to many relationship with TODOS.
 
-- [ ] SeedData.java is a sample class that can be modified to populate the database. However, this is the seed data to use for this application. The structure can change, the data should not change. Do populate the database with this data.
+- [ ] SeedData.java is a class provided to populate the database. The structure cannot be changed! Do populate the database with this data.
+
+- [ ] Do NOT change or delete entries in the POM.XML - Dependencies may be added as needed
 
 The following end points are already available in the initial application. You are to make sure the end points work with the newly added todos table
 
