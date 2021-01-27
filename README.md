@@ -12,9 +12,115 @@ _You have **three hours** to complete this challenge. Plan your time accordingly
 
 ## Introduction
 
-This is a basic todo database scheme with users and a todo list. Users have a one to many relationship to todo list. One user can have many todo items while a todo item only matches to one user. CRUD operations are available to display and manipulate this data.
+This is a basic todo database scheme with users and a todo list. Users have a one to many relationship with todos. One user can have many todo items while a todo item only matches to one user. CRUD operations are available to display and manipulate this data.
 
-Your final results should look like:
+### Commits
+
+Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your project reviewers as they evaluate your solution.
+
+## Interview Questions
+
+Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
+
+1. Explain your database schema, including how your database is "normalized".
+2. Explain how you connected your API to a database.
+3. Explain the flow of data from the client through the backend system and back to the client.
+4. Explain how the CRUD operations work in your application, including any custom SQL that was used.
+
+## Instructions
+
+### Task 1: Project Set Up
+
+- [ ] Create a forked copy of this project
+- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
+- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
+- [ ] Start with the provided todo application
+- [ ] Push commits: `git push -u origin <firstName-lastName>`
+- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
+
+#### Video on How to Set Up Your Project
+
+[![Video on how to set up your project](https://img.youtube.com/vi/Bw55xlQGQoQ/0.jpg)](https://youtu.be/Bw55xlQGQoQ)
+
+### Task 2: Project Requirements
+
+You will be creating a REST api service to store and read data from an H2 database.
+
+- [ ] Please fork and clone this repository. This repository has a starting application called todos. You must start working from there. Regularly commit and push your code as appropriate.
+
+- [ ] The initial application contains the model for the users table. Endpoints are already created and the structure for auditing fields is in place. You are adding the model for the todos table and updating the services to work with the new table.
+
+- [ ] **TODOS**
+  - `todoid` primary key, not null long
+  - `description` string, not null
+  - `completed` boolean. Note that for all new todos, default completed to false
+  - `userid` foreign key (one user to many todos) not null
+  - All tables must have the standard 4 auditing fields in place and working, being populated: created on, created by, last modified on, last modified by. The auditing usernames will all default to `llama`.
+  - USERS have a one to many relationship with TODOS.
+
+- [ ] SeedData.java is a class provided to populate the database. The structure cannot be changed! Do populate the database with this data.
+
+- [ ] Do NOT change or delete entries in the POM.XML - Dependencies may be added as needed
+
+The following end points are already available in the initial application. You are to make sure the end points work with the newly added todos table
+
+- [ ] GET /users/users - return all of the users and their todos.
+
+- [ ] GET /users/user/{userid} - return the user and their todos based off of user id.
+
+- [ ] POST /users/user - adds a user with their todos
+
+  You can use the following to test this!
+
+  ```JSON
+  {
+      "username": "lambdallama",
+      "primaryemail": "llama@lambdaschool.local",
+      "password": "ILuvM4th!",
+      "todos": [
+          {
+              "description": "Take over the world"
+          },
+          {
+              "description": "Make lasagna"
+          }
+      ]
+  }
+  ```
+
+- [ ] PATCH /todos/todo/{todoid} - mark a todo as completed.
+
+- [ ] DELETE /users/user/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
+
+### Required best practices
+
+- [ ] Consistent naming. Examples: variables, functions, Components, and file/folder organization.
+- [ ] Consistent spacing. Examples: line breaks, around arguments and before/after functions.
+- [ ] Consistent quotation usage.
+- [ ] Spell-check.
+- [ ] Schedule time to review, refine and reassess your work.
+
+It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) than one that attempts too much and fails.
+
+### Tips and Gotchas
+
+In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
+
+### Task 3: Stretch Goals
+
+- [ ] GET /users/users/todos - lists the number of todos each user has that are NOT completed. Use a custom query to accomplish this!
+  - Users with 0 todos do NOT have to be included in the list
+  - Order the list by username!
+  
+- [ ] Add in 100 more random users each with a random number (0 - 3) of random todos. The todos descriptions should be something random as well. For my example, I picked Pokemon names!
+
+## Submission format
+
+Follow these steps for completing your project.
+
+- [ ] Set up your fork on Github to submit via CodeGrade, pushing commits to your <firstName-lastName> branch.
+
+## Your final results should look like:
 
 ### MVP
 
@@ -1740,108 +1846,3 @@ STATUS OK
 ```
 
 </details>
-
-### Commits
-
-Commit your code regularly and meaningfully. This helps both you (in case you ever need to return to old code for any number of reasons) and your team lead as the evaluate your solution.
-
-## Interview Questions
-Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
-
-1. Can you explain your data model, data schema to me?
-2. Can you explain how you connected your API to a database?
-3. Can you explain the flow of data from the client through the backend system and back to the client?
-4. How did you handle querying in your application: custom querying vs JPA Querying?
-
-## Instructions
-
-### Task 1: Project Set Up
-
-- [ ] Create a forked copy of this project
-- [ ] Clone your OWN version of the repository (Not Lambda's by mistake!)
-- [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-- [ ] Start with the provided todo application
-- [ ] Push commits: `git push -u origin <firstName-lastName>`
-- [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly
-
-#### Video on How to Set Up Your Project
-
-[![Video on how to set up your project](https://img.youtube.com/vi/Bw55xlQGQoQ/0.jpg)](https://youtu.be/Bw55xlQGQoQ)
-
-### Task 2: Project Requirements
-
-You will be creating a REST api service to store and read data from an H2 database.
-
-- [ ] Please fork and clone this repository. This repository has a starting application called todos. You must start working from there. Regularly commit and push your code as appropriate.
-
-- [ ] The initial application contains the model for the users table. Endpoints are already created and the structure for auditing fields is in place. You are adding the model for the todos table and updating the services to work with the new table.
-
-- [ ] TODOS
-  - `todoid` primary key, not null long
-  - `description` string, not null
-  - `completed` boolean. Note that for all new todos, default completed to false
-  - `userid` foreign key (one user to many todos) not null
-  - All tables must have the standard 4 auditing fields in place and working, being populated: created on, created by, last modified on, last modified by. The auditing usernames will all default to `llama`.
-  - USERS have a one to many relationship with TODOS.
-
-- [ ] SeedData.java is a class provided to populate the database. The structure cannot be changed! Do populate the database with this data.
-
-- [ ] Do NOT change or delete entries in the POM.XML - Dependencies may be added as needed
-
-The following end points are already available in the initial application. You are to make sure the end points work with the newly added todos table
-
-- [ ] GET /users/users - return all of the users and their todos.
-
-- [ ] GET /users/user/{userid} - return the user and their todos based off of user id.
-
-- [ ] POST /users/user - adds a user with their todos
-
-  You can use the following to test this!
-
-  ```JSON
-  {
-      "username": "lambdallama",
-      "primaryemail": "llama@lambdaschool.local",
-      "password": "ILuvM4th!",
-      "todos": [
-          {
-              "description": "Take over the world"
-          },
-          {
-              "description": "Make lasagna"
-          }
-      ]
-  }
-  ```
-
-- [ ] PATCH /todos/todo/{todoid} - mark a todo as completed.
-
-- [ ] DELETE /users/user/{userid} - Deletes a user based off of their userid and deletes all their associated todos.
-
-### Required best practices
-
-- [ ] Consistent naming. Examples: variables, functions, Components, and file/folder organization.
-- [ ] Consistent spacing. Examples: line breaks, around arguments and before/after functions.
-- [ ] Consistent quotation usage.
-- [ ] Spell-check.
-- [ ] Schedule time to review, refine and reassess your work.
-
-It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) than one that attempts too much and fails.
-
-### Tips and Gotchas
-
-In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
-
-### Task 3: Stretch Goals
-
-- [ ] GET /users/users/todos - lists the number of todos each user has that are NOT completed. Use a custom query to accomplish this!
-  - Users with 0 todos do NOT have to be included in the list
-  - Order the list by username!
-  
-- [ ] Add in 100 more random users each with a random number (0 - 3) of random todos. The todos descriptions should be something random as well. For my example, I picked Pokemon names!
-
-## Submission format
-
-Follow these steps for completing your project.
-
-- [ ] Set up your fork on Github to submit via CodeGrade, pushing commits to your <firstName-lastName> branch.
