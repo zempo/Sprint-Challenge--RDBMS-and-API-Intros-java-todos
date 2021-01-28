@@ -60,7 +60,7 @@ You will be creating a REST api service to store and read data from an H2 databa
 
 - [ ] SeedData.java is a class provided to populate the database. The structure cannot be changed! Do populate the database with this data.
 
-- [ ] Do NOT change or delete entries in the POM.XML - Dependencies may be added as needed
+- [ ] Do NOT change or delete entries in the POM.XML - Dependencies, plugins, etc. may be added as needed
 
 The following end points are already available in the initial application. You are to make sure the end points work with the newly added todos table
 
