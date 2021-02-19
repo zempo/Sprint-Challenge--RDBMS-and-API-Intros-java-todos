@@ -1,5 +1,6 @@
 package com.lambdaschool.todos.services;
 
+import com.lambdaschool.todos.models.Todo;
 import com.lambdaschool.todos.models.User;
 import com.lambdaschool.todos.repository.UserRepository;
 import com.lambdaschool.todos.views.UserNameCountTodos;
@@ -33,7 +34,7 @@ public class UserServiceImpl implements UserService
     public User findUserById(long id) throws EntityNotFoundException
     {
         return userrepos.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
+                .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
     }
 
     @Override
@@ -45,8 +46,8 @@ public class UserServiceImpl implements UserService
          * iterate over the iterator set and add each element to an array list.
          */
         userrepos.findAll()
-            .iterator()
-            .forEachRemaining(list::add);
+                .iterator()
+                .forEachRemaining(list::add);
         return list;
     }
 
@@ -55,7 +56,7 @@ public class UserServiceImpl implements UserService
     public void delete(long id)
     {
         userrepos.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
+                .orElseThrow(() -> new EntityNotFoundException("User id " + id + " not found!"));
         userrepos.deleteById(id);
     }
 
@@ -66,10 +67,20 @@ public class UserServiceImpl implements UserService
         User newUser = new User();
 
         newUser.setUsername(user.getUsername()
-            .toLowerCase());
+                .toLowerCase());
         newUser.setPassword(user.getPassword());
         newUser.setPrimaryemail(user.getPrimaryemail()
-            .toLowerCase());
+                .toLowerCase());
+
+        newUser.getTodos().clear();
+        for (Todo t : user.getTodos()) {
+            Todo newTodo = new Todo();
+            newTodo.setCompleted(t.isCompleted());
+            newTodo.setDescription(t.getDescription());
+            newTodo.setUser(newUser);
+
+            newUser.getTodos().add(newTodo);
+        }
 
         return userrepos.save(newUser);
     }
