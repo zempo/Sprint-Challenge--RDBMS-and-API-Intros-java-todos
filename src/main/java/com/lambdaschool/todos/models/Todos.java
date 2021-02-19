@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "todos")
-public class Todo extends Auditable{
+public class Todos extends Auditable{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -23,10 +23,10 @@ public class Todo extends Auditable{
     @Column(columnDefinition = "boolean default false")
     private boolean completed;
 
-    public Todo() {
+    public Todos() {
     }
 
-    public Todo(User user, String description) {
+    public Todos(User user, String description) {
         this.user = user;
         this.description = description;
     }

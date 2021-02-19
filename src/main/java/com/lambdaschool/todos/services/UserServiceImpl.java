@@ -1,6 +1,6 @@
 package com.lambdaschool.todos.services;
 
-import com.lambdaschool.todos.models.Todo;
+import com.lambdaschool.todos.models.Todos;
 import com.lambdaschool.todos.models.User;
 import com.lambdaschool.todos.repository.UserRepository;
 import com.lambdaschool.todos.views.UserNameCountTodos;
@@ -73,13 +73,13 @@ public class UserServiceImpl implements UserService
                 .toLowerCase());
 
         newUser.getTodos().clear();
-        for (Todo t : user.getTodos()) {
-            Todo newTodo = new Todo();
-            newTodo.setCompleted(t.isCompleted());
-            newTodo.setDescription(t.getDescription());
-            newTodo.setUser(newUser);
+        for (Todos t : user.getTodos()) {
+            Todos newTodos = new Todos();
+            newTodos.setCompleted(t.isCompleted());
+            newTodos.setDescription(t.getDescription());
+            newTodos.setUser(newUser);
 
-            newUser.getTodos().add(newTodo);
+            newUser.getTodos().add(newTodos);
         }
 
         return userrepos.save(newUser);

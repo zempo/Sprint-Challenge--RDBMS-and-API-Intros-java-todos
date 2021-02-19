@@ -1,6 +1,6 @@
 package com.lambdaschool.todos.services;
 
-import com.lambdaschool.todos.models.Todo;
+import com.lambdaschool.todos.models.Todos;
 
 public interface TodosService
 {
